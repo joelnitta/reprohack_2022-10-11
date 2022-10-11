@@ -2,7 +2,7 @@
 format:
   revealjs:
     slide-level: 2
-  preview-links: false
+    preview-links: false
     bibliography: references.yaml
     reference-location: document
     css: styles.css
@@ -232,15 +232,15 @@ docker run --rm -v ${PWD}:/wd -w /wd joelnitta/pleurosoriopsis:targets \
 :::
 
 ```bash
-docker run --rm -dt -v ${PWD}:/home/rstudio/pleurosoriopsis -p 8787:8787 \
-  --name pleuro \
+docker run --rm -dt -v ${PWD}:/home/rstudio/ \
+  -p 8787:8787 \
   -e DISABLE_AUTH=true \
+  --name pleuro \
   joelnitta/pleurosoriopsis:targets
 ```
 
 - Navigate to `localhost:8787/` in your browser
-- In the RStudio "Files" pane, click the `pleurosoriopsis` folder
-- Click `Pleurosoriopsis.Rproj` to open the project.
+- In the RStudio "Files" pane, click `Pleurosoriopsis.Rproj` to open the project
 
 ## Cleaning up
 
