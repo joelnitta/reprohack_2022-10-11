@@ -2,7 +2,7 @@
 format:
   revealjs:
     slide-level: 2
-    preview-links: true
+  preview-links: false
     bibliography: references.yaml
     reference-location: document
     css: styles.css
