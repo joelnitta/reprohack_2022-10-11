@@ -1,6 +1,6 @@
 # reprohack_2022-10-11
 
-Slides for [reprohack]() presentation, "Reproducible analyses with targets and Docker: An example from reprohack" by Joel H. Nitta
+Slides for [reprohack](https://www.reprohack.org/event/20/) presentation, "Reproducible analyses with targets and Docker: An example from reprohack" by Joel H. Nitta
 
 Rendered slides at https://joelnitta.github.io/reprohack_2022-10-11
 
