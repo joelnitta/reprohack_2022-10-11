@@ -142,11 +142,9 @@ If **one part** of a workflow changes, **how does it affect other parts?**
 
 - User manual <https://books.ropensci.org/targets/>
 
-- Targetopia <https://wlandau.github.io/targetopia/>
-
-- {tarchetypes} website <https://docs.ropensci.org/tarchetypes/>
-
 - Discussion board <https://github.com/ropensci/targets/discussions>
+
+- AsiaR workshop <https://github.com/AsiaR-community/2022-bioCasia_targets>
 
 ## What is Docker?
 
