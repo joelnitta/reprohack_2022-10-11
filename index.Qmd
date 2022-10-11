@@ -1,0 +1,262 @@
+---
+format:
+  revealjs:
+    slide-level: 2
+    preview-links: true
+    bibliography: references.yaml
+    reference-location: document
+    css: styles.css
+    slide-number: true
+    self-contained: true
+---
+
+## Reproducible analyses with targets and Docker: An example from reprohack
+
+```{r}
+#| label: qrcode
+#| echo: false
+# Make a QR code for this site
+library(qrcode)
+slide_url <- "https://joelnitta.github.io/reprohack_2022-10-11"
+slide_qr <- qr_code(slide_url)
+generate_svg(slide_qr, filename = "images/slide_qr.svg")
+```
+
+**Joel H. Nitta**
+
+Reprohack  
+2022-10-11
+\
+\
+\
+<`r slide_url`>
+
+::: {.small}
+[![](https://licensebuttons.net/l/by-nc/4.0/80x15.png)](https://creativecommons.org/licenses/by-nc/4.0/){.absolute fig-alt="CC-BY-NC license badge" left=0}
+:::
+
+![](images/slide_qr.svg){.absolute fig-alt="QR code linking to https://joelnitta.github.io/reprohack_2022-10-11" height="200" right=550 bottom=200}
+
+![](https://docs.ropensci.org/targets/logo.svg){.absolute fig-alt="targets logo" height="200" right=350 bottom=200}
+
+![](https://www.docker.com/wp-content/uploads/2022/03/Moby-logo.png){.absolute fig-alt="docker logo" height="200" right=50 bottom=200}
+
+::: {.aside}
+Source: <https://github.com/joelnitta/reprohack_2022-10-11>
+:::
+
+## Self-introduction
+
+:::: {.columns}
+
+::: {.column width="70%"}
+[\@joel_nitta](https://github.com/joelnitta)
+
+<https://joelnitta.com>
+
+- Project Research Associate @ [Tokyo University](http://iwasakilab.k.u-tokyo.ac.jp/)
+
+- Research interests: Ecology and evolution of __ferns__
+
+- Hobbies: Running (after my 7YO!)
+:::
+
+::: {.column width="30%"}
+![Photo: J-Y Meyer](https://github.com/joelnitta/joelnitta-site/blob/master/static/media/headers/research_img2.jpg?raw=true){fig-alt="Photo of Joel Nitta collecting fern gametophytes by J-Y Meyer" height="400"}
+:::
+
+::::
+
+## Outline of today's talk
+
+- Introduction to {targets} and Docker
+
+- Demo: *Pleurosoriopsis* project
+
+- Q & A
+
+## Why {targets} and Docker?
+
+::: {.large}
+::: {.fragment}
+- **To make your code more reproducible**
+:::
+:::
+
+## What is reproducibility?
+
+> The ability for others (or your future self) to re-run your code and get the same results
+
+::: {.incremental}
+- Not "yes" or "no"
+- Reproducibility = **mindset**
+- Many aspects
+  - Data availability
+  - **Code automation** 
+  - **Computing environment**
+:::
+
+## Analysis workflows
+
+![](images/workflow_1.png)
+
+**Which steps** need to be run **in what order**?
+
+::: {.aside}
+R for Data Science <https://r4ds.had.co.nz/>
+:::
+
+## Analysis workflows
+
+![](images/workflow_2.png)
+
+If **one part** of a workflow changes, **how does it affect other parts?**
+
+**How much of it do we need to re-run?**
+
+## What is {targets}?
+
+:::: {.columns}
+
+::: {.column width="70%"}
+- R package to automate workflow
+
+- Only runs necessary steps
+
+- Can run workflow steps in parallel (speeds up analysis)
+
+- Provides proof that **results** are derived **from code**
+:::
+
+::: {.column width="30%"}
+![](https://docs.ropensci.org/targets/logo.svg){fig-alt="targets package logo" height="350"}
+:::
+
+::::
+
+## {targets} resources
+
+- Github <https://github.com/ropensci/targets>
+
+- Package website <https://docs.ropensci.org/targets/>
+
+- User manual <https://books.ropensci.org/targets/>
+
+- Targetopia <https://wlandau.github.io/targetopia/>
+
+- {tarchetypes} website <https://docs.ropensci.org/tarchetypes/>
+
+- Discussion board <https://github.com/ropensci/targets/discussions>
+
+## What is Docker?
+
+:::: {.columns}
+
+::: {.column width="70%"}
+Docker provides **containers**: self-contained packages of software with **everything needed to run an application**
+:::
+
+::: {.column width="30%"}
+![](https://www.docker.com/wp-content/uploads/2022/03/Moby-logo.png){fig-alt="Docker logo"}
+:::
+
+::::
+
+## Why use Docker?
+
+:::: {.columns}
+
+::: {.column width="70%"}
+- A given piece of software **depends** on many other pieces of software (**dependencies**)
+
+- If dependencies change (or are missing), your program may not run
+
+- Docker containers **provide all dependencies** needed, **on any computer**
+:::
+
+::: {.column width="30%"}
+![](https://images-na.ssl-images-amazon.com/images/I/51I1Tcg3B+L.jpg){fig-alt="'It works on my machine' meme"}
+:::
+
+::::
+
+## Docker resources
+
+- Docker docs <https://docs.docker.com/>
+
+- Docker hub <https://hub.docker.com/>
+
+- Software Carpentry lesson <https://carpentries-incubator.github.io/docker-introduction/>
+
+- Rocker Project (Docker for R) <https://rocker-project.org/>
+
+## Example: *Pleurosoriopsis*
+
+:::: {.columns}
+
+::: {.column width="70%"}
+- Study on growth conditions of fern *Pleurosoriopsis makinoi* in Japan
+
+- Original [reprohack](https://www.reprohack.org/paper/12/) used {drake} instead of {targets} but **{targets} is newer and replaces {drake}**, so I recommend that
+
+- Available at `targets` branch of `pleurosoriopsis` repo:
+
+ <https://github.com/joelnitta/pleurosoriopsis/tree/targets>
+
+:::
+
+::: {.column width="30%"}
+![](http://kanagawa-shida.kirara.st/photo/jpeg/karakusaseitai130329-1100x.jpg){fig-alt="Image of fern Pleurosoriopsis makinoi" height="300"}
+
+:::
+
+::::
+
+::: {.aside}
+Photo Takae Hiroshi
+:::
+
+## Demo
+
+- Only required software is **Docker**
+- Can **replicate analysis** with **one command**
+
+```bash
+docker run --rm -v ${PWD}:/wd -w /wd joelnitta/pleurosoriopsis:targets \
+  bash /tmp/make.sh
+```
+
+## Interacting with the code
+
+- The Docker image comes with RStudio so we can interact with the code **in Docker**
+
+::: {.medium}
+(must be run from within `pleurosoriopsis` folder)
+:::
+
+```bash
+docker run --rm -dt -v ${PWD}:/home/rstudio/pleurosoriopsis -p 8787:8787 \
+  --name pleuro \
+  -e DISABLE_AUTH=true \
+  joelnitta/pleurosoriopsis:targets
+```
+
+- Navigate to `localhost:8787/` in your browser
+- In the RStudio "Files" pane, click the `pleurosoriopsis` folder
+- Click `Pleurosoriopsis.Rproj` to open the project.
+
+## Cleaning up
+
+- Remove the container:
+
+```
+docker kill pleuro
+```
+
+- (Optional) remove the image:
+
+```
+docker rmi joelnitta/pleurosoriopsis:targets
+```
+
+# Questions?
