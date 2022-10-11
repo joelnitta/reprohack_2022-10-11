@@ -200,21 +200,18 @@ Docker provides **containers**: self-contained packages of software with **every
 - Original [reprohack](https://www.reprohack.org/paper/12/) used {drake} instead of {targets} but **{targets} is newer and replaces {drake}**, so I recommend that
 
 - Available at `targets` branch of `pleurosoriopsis` repo:
-
- <https://github.com/joelnitta/pleurosoriopsis/tree/targets>
-
 :::
 
 ::: {.column width="30%"}
-![](http://kanagawa-shida.kirara.st/photo/jpeg/karakusaseitai130329-1100x.jpg){fig-alt="Image of fern Pleurosoriopsis makinoi" height="300"}
-
+::: {.small}
+![](http://kanagawa-shida.kirara.st/photo/jpeg/karakusaseitai130329-1100x.jpg){fig-alt="Image of fern Pleurosoriopsis makinoi" height="300"}  
+Photo Takae Hiroshi
+:::
 :::
 
 ::::
 
-::: {.aside}
-Photo Takae Hiroshi
-:::
+ <https://github.com/joelnitta/pleurosoriopsis/tree/targets>
 
 ## Demo
 
